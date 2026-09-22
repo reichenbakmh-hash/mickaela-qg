@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Le QG anti-journée pourrie de Mickaëla</title>
+<meta name="description" content="Un site inutile mais utile quand même.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+<nav class="progress-nav" id="progressNav" aria-label="Progression sur le site">
+  <button class="dot active" type="button" data-view="view-hero" aria-label="Accueil" aria-current="step"></button>
+  <button class="dot" type="button" data-view="view-boost" aria-label="Boost"></button>
+  <button class="dot" type="button" data-view="view-wheel" aria-label="Roue"></button>
+  <button class="dot" type="button" data-view="view-game" aria-label="Jeu"></button>
+  <button class="dot" type="button" data-view="view-hugs" aria-label="Câlins"></button>
+  <button class="dot" type="button" data-view="view-emergency" aria-label="Urgence"></button>
+  <button class="dot" type="button" data-view="view-envelope" aria-label="Mot doux"></button>
+  <button class="dot" type="button" data-view="view-secrets" aria-label="Secrets"></button>
+  <button class="dot" type="button" data-view="view-birthday" aria-label="Anniversaire"></button>
+</nav>
+
+<main>
+
+<section class="view" id="view-hero">
+  <header class="hero">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <p class="eyebrow">⚠️ site officiellement inutile</p>
+    <h1 class="hero-title">Le QG anti-journée<br>pourrie de <span class="wavy">Mickaëla</span></h1>
+    <p class="hero-subtitle">Mickaëla &amp; moi contre les jours pourris</p>
+    <p class="hero-message">
+      Salut Mickaëla. Ce site n'a aucune utilité. Mais si tu es triste, clique sur le bouton.
+      Si tu n'es pas triste, clique quand même : ça fait des confettis. Promis.
+    </p>
+    <button class="scroll-hint" type="button" data-view="view-boost">c'est par ici →</button>
+  </header>
+</section>
+
+<section class="view" id="view-boost">
+  <div class="section" id="boost">
+    <h2 class="section-title">Le bouton du moral</h2>
+    <p class="section-lead">Un clic, une dose aléatoire de réconfort ou de bêtise. Parfois les deux.</p>
+
+    <button class="boost-btn" id="boostBtn" type="button">
+      <span>BOOST</span>
+      <span class="boost-btn-sub">clique-moi</span>
+    </button>
+
+    <div class="boost-result" id="boostResult" aria-live="polite"></div>
+
+    <div class="check-in" id="checkIn">
+      <p class="check-in-question">Tu vas bien aujourd'hui ?</p>
+      <div class="check-in-buttons">
+        <button class="btn-yes" id="btnYes" type="button">Oui</button>
+        <button class="btn-no" id="btnNo" type="button">Non</button>
+      </div>
+      <p class="check-in-answer" id="checkInAnswer" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-wheel">
+  <div class="section section-alt" id="wheel-section">
+    <h2 class="section-title">La roue des raisons pour lesquelles tu es géniale</h2>
+    <p class="section-lead">Fais tourner. Il n'y a que des bonnes réponses.</p>
+
+    <div class="wheel-wrap">
+      <div class="wheel" id="wheel"></div>
+      <div class="wheel-pointer" aria-hidden="true">▼</div>
+    </div>
+
+    <button class="btn-primary" id="spinBtn" type="button">Faire tourner la roue</button>
+    <p class="wheel-result" id="wheelResult" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="view" id="view-game">
+  <div class="section" id="game-section">
+    <h2 class="section-title">Attrape les nuages gris</h2>
+    <p class="section-lead">Tape sur les nuages avant qu'ils ne s'installent. Ils détestent ça.</p>
+
+    <div class="game-frame" id="gameFrame">
+      <div class="game-hud">
+        <span>Score : <strong id="gameScore">0</strong></span>
+        <span id="gameTimer">20s</span>
+      </div>
+      <div class="game-area" id="gameArea"></div>
+      <button class="btn-primary" id="gameStart" type="button">Lancer la partie</button>
+      <p class="game-result" id="gameResult" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-hugs">
+  <div class="section section-alt" id="hugs">
+    <h2 class="section-title">Distributeur de câlins virtuels</h2>
+    <p class="section-lead">Gratuit, illimité, zéro calorie.</p>
+
+    <button class="hug-image-btn" id="hugImage" type="button" aria-label="Distribuer un câlin virtuel">
+      <img src="assets/images/calin.jpg" alt="Câlin virtuel">
+    </button>
+    <p class="hug-count" id="hugCount">0 câlin distribué</p>
+    <p class="hug-message" id="hugMessage" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="view" id="view-emergency">
+  <div class="section section-emergency" id="emergency">
+    <h2 class="section-title">Mode urgence BFF</h2>
+    <p class="section-lead">Si ça ne va vraiment pas, oublie tout le reste sur cette page.</p>
+
+    <button class="emergency-btn" id="emergencyBtn" type="button">Si ça ne va vraiment pas</button>
+
+    <div class="emergency-panel" id="emergencyPanel" hidden>
+      <p class="emergency-line">Tu n'es pas seule.</p>
+      <p class="emergency-line">Appelle-moi. Écris-moi. Peu importe l'heure.</p>
+      <a class="emergency-contact" href="https://m.me/dan.gracy.2025" target="_blank" rel="noopener">Parle-moi</a>
+
+      <div class="breathing" id="breathing">
+        <div class="breathing-circle" id="breathingCircle"></div>
+        <p class="breathing-label" id="breathingLabel">Inspire</p>
+        <p class="breathing-caption">Respire avec le cercle. 4 secondes pour inspirer, 4 pour bloquer, 6 pour expirer.</p>
+      </div>
+
+      <div class="song">
+        <p class="song-label">Une chanson pour toi, la partie qui fait du bien :</p>
+        <button class="btn-song" id="songBtn" type="button">▶ Écouter</button>
+        <audio id="bffSong" src="assets/audio/chanson.mp3" preload="auto"></audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-envelope">
+  <div class="section" id="envelope-section">
+    <h2 class="section-title">Avant que tu partes</h2>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-label="Ouvrir l'enveloppe">
+      <div class="envelope-body">
+        <div class="envelope-flap"></div>
+        <div class="envelope-heart">💌</div>
+      </div>
+      <p class="envelope-hint">clique sur l'enveloppe</p>
+    </div>
+    <div class="letter" id="letter" hidden>
+      <p>Mickaëla,</p>
+      <p>Peu importe la distance, je suis là. Vraiment là. Pas juste "là si besoin" là tout court. Promis.</p>
+      <p>Tu comptes plus que tu ne le penses, et cette phrase n'a rien d'une blague.</p>
+      <p>Écris-moi quand tu veux, pour tout, pour rien, pour raconter n'importe quoi. Je te répondrai.</p>
+      <p>— la personne la plus fière de toi, quoi qu'il arrive</p>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-secrets">
+  <div class="section easter-eggs">
+    <h2 class="section-title">Coin secret</h2>
+    <button class="btn-secret" id="noClickBtn" type="button">Ne pas cliquer</button>
+    <button class="btn-secret" id="noPressBtn" type="button">Ne pas appuyer</button>
+    <div class="easter-gif" id="easterGif" hidden></div>
+  </div>
+</section>
+
+<section class="view" id="view-birthday">
+  <div class="section" id="birthday">
+    <h2 class="section-title">🎂 Joyeux anniversaire</h2>
+    <p class="section-lead">Le gâteau se monte tout seul. Regarde.</p>
+
+    <div class="cake-scene" id="cakeScene">
+      <div class="cake-glow" aria-hidden="true"></div>
+      <div class="cake-candles" id="cakeCandles">
+        <span class="candle"></span>
+        <span class="candle"></span>
+        <span class="candle"></span>
+      </div>
+      <div class="cake-frosting"></div>
+      <div class="cake-layer cake-layer-top"></div>
+      <div class="cake-layer cake-layer-bottom"></div>
+      <div class="cake-plate"></div>
+      <div class="cake-sprinkles" id="cakeSprinkles"></div>
+    </div>
+
+    <p class="cake-caption" id="cakeCaption" aria-live="polite"></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Un souci, une envie de parler, ou juste envie de te défouler, clique ici :</p>
+  <a class="footer-link" href="https://m.me/dan.gracy.2025" target="_blank" rel="noopener">Écris-moi sur Messenger</a>
+</footer>
+
+<div class="secret-overlay" id="secretOverlay" hidden>
+  <div class="secret-box">
+    <p id="secretMessage"></p>
+    <button class="btn-primary" id="secretClose" type="button">Fermer</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
