@@ -104,6 +104,51 @@ function launchConfetti(count) {
   }
 }
 
+function computeAge(birthYear, birthMonthIndex, birthDay) {
+  const birth = new Date(birthYear, birthMonthIndex, birthDay);
+  const now = new Date();
+  let age = now.getFullYear() - birth.getFullYear();
+  const hadBirthdayThisYear = now.getMonth() > birthMonthIndex || (now.getMonth() === birthMonthIndex && now.getDate() >= birthDay);
+  if (!hadBirthdayThisYear) age -= 1;
+  return age;
+}
+
+function buildSprinkles(container) {
+  container.innerHTML = "";
+  const colors = ["#FF6FA0", "#FFC93C", "#4FC3F7", "#5FD3A4", "#7C6CF2"];
+  for (let i = 0; i < 16; i++) {
+    const s = document.createElement("span");
+    s.className = "cake-sprinkle";
+    s.style.background = colors[i % colors.length];
+    s.style.left = (28 + Math.random() * 160) + "px";
+    s.style.top = (108 + Math.random() * 18) + "px";
+    s.style.transform = "translateY(-14px) rotate(" + Math.floor(Math.random() * 180) + "deg)";
+    container.appendChild(s);
+    const delay = 2100 + i * 45;
+    setTimeout(() => {
+      s.style.opacity = "1";
+      s.style.transform = "translateY(0) rotate(" + Math.floor(Math.random() * 40 - 20) + "deg)";
+    }, delay);
+  }
+}
+
+function playCakeAnimation() {
+  const scene = document.getElementById("cakeScene");
+  const caption = document.getElementById("cakeCaption");
+  scene.classList.remove("playing");
+  caption.textContent = "";
+  void scene.offsetWidth;
+  buildSprinkles(document.getElementById("cakeSprinkles"));
+  requestAnimationFrame(() => scene.classList.add("playing"));
+  setTimeout(() => {
+    const age = computeAge(2005, 8, 22);
+    caption.textContent = "Joyeux anniversaire Mickaëla — " + age + " ans aujourd'hui 🎂";
+    launchConfetti(70);
+  }, 3300);
+}
+
+document.getElementById("cakeReplay").addEventListener("click", playCakeAnimation);
+
 const tabs = document.querySelectorAll(".tab");
 const views = document.querySelectorAll(".view");
 
@@ -115,6 +160,7 @@ function switchView(viewId) {
   });
   views.forEach((v) => v.classList.toggle("active", v.id === viewId));
   window.scrollTo({ top: 0, behavior: "smooth" });
+  if (viewId === "view-birthday") playCakeAnimation();
 }
 
 tabs.forEach((tab) => {
@@ -124,6 +170,11 @@ tabs.forEach((tab) => {
 document.querySelectorAll("[data-view]:not(.tab)").forEach((el) => {
   el.addEventListener("click", () => switchView(el.dataset.view));
 });
+
+const today = new Date();
+if (today.getMonth() === 8 && today.getDate() === 22) {
+  switchView("view-birthday");
+}
 
 const boostBtn = document.getElementById("boostBtn");
 const boostResult = document.getElementById("boostResult");

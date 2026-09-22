@@ -17,6 +17,7 @@
 
 <nav class="tabbar" id="tabbar" role="tablist" aria-label="Navigation du site">
   <button class="tab active" type="button" role="tab" aria-selected="true" data-view="view-hero">Accueil</button>
+  <button class="tab" type="button" role="tab" aria-selected="false" data-view="view-birthday">Anniversaire</button>
   <button class="tab" type="button" role="tab" aria-selected="false" data-view="view-boost">Boost</button>
   <button class="tab" type="button" role="tab" aria-selected="false" data-view="view-wheel">Roue</button>
   <button class="tab" type="button" role="tab" aria-selected="false" data-view="view-game">Jeu</button>
@@ -40,6 +41,29 @@
     </p>
     <button class="scroll-hint" type="button" data-view="view-boost">c'est par ici →</button>
   </header>
+</section>
+
+<section class="view" id="view-birthday">
+  <div class="section" id="birthday">
+    <h2 class="section-title">🎂 Joyeux anniversaire</h2>
+    <p class="section-lead">Le gâteau se monte tout seul. Regarde.</p>
+
+    <div class="cake-scene" id="cakeScene">
+      <div class="cake-candles" id="cakeCandles">
+        <span class="candle"></span>
+        <span class="candle"></span>
+        <span class="candle"></span>
+      </div>
+      <div class="cake-frosting"></div>
+      <div class="cake-layer cake-layer-top"></div>
+      <div class="cake-layer cake-layer-bottom"></div>
+      <div class="cake-plate"></div>
+      <div class="cake-sprinkles" id="cakeSprinkles"></div>
+    </div>
+
+    <p class="cake-caption" id="cakeCaption" aria-live="polite"></p>
+    <button class="btn-primary" id="cakeReplay" type="button">Rejouer l'animation</button>
+  </div>
 </section>
 
 <section class="view" id="view-boost">
